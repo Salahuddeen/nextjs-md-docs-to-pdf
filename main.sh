@@ -57,13 +57,14 @@ fi
 echo ""
 
 function merge_the_file_fn() {
-    rm -fr "./work/$docs_folder.md"
+    rm -fr "./work/$docs_folder.mdx"
+    echo $docs_folder
     display_global_info "Merge all md files to one md file" "yes"
     merge_all_md_files "$docs_folder"
 }
 
 if [ -f "./work/$docs_folder.md" ]; then
-    echo "The file './work/$docs_folder.md' already exists."
+    echo "The file './work/$docs_folder.mdx' already exists."
     echo "Do you want to merge them again? (y/n)"
     read merge_again
 
@@ -92,7 +93,7 @@ const { marked } = require('marked');
 const puppeteer = require('puppeteer');
 
 // Read the Markdown file
-fs.promises.readFile('./work/$docs_folder.md', 'utf8')
+fs.promises.readFile('./work/$docs_folder.mdx', 'utf8')
   .then((data) => {
     // Convert Markdown to HTML
     const html = marked(data);
